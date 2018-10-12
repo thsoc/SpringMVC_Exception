@@ -25,5 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<input type="text" name="id">
   	<input type="submit" value="提交">
   </form>
+  <h1>${pageContext.request.contextPath }</h1>
   </body>
 </html>
