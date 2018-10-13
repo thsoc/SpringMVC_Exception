@@ -1,5 +1,7 @@
 package com.exception.resolver;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,9 +29,13 @@ public class UserExceptionResolver implements HandlerExceptionResolver{
 		if(ex instanceof UserExceptionFormEnum) {
 			/*2.如果异常类型是系统自定义异常，
 			直接取出异常信息，再错误页面展示*/
-			message = ((UserExceptionFormEnum)ex).getMessage();
+			message = ((UserExceptionFormEnum)ex).getMsg();
 		}else if(ex instanceof UserExceptionFormProperties){
-			message = ((UserExceptionFormProperties)ex).getMessage();
+			try {
+				message = ((UserExceptionFormProperties)ex).getMsg();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}else{
 			/*3.如果异常类型不是系统自定义的异常，
 			构造一个自定义的异常类型（信息位“未知错误”）*/

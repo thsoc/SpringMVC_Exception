@@ -5,24 +5,23 @@ import com.util.ExceptionEnum;
 public class UserExceptionFormEnum extends Exception{
 	private static final long serialVersionUID = 1L;
 	private String code;
-	private String message;
-	public UserExceptionFormEnum(ExceptionEnum exceptionEnum) {
-		this.code = exceptionEnum.getCode();
-		this.message = exceptionEnum.getMessage();
-	}
 	public String getCode() {
 		return code;
 	}
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public String getMessage() {
-		return message;
+	public UserExceptionFormEnum(String code) {
+		super();
+		this.code = code;
 	}
-	public void setMessage(String message) {
-		this.message = message;
+	public UserExceptionFormEnum(ExceptionEnum exceptionEnum) {
+		this.code = exceptionEnum.getCode();
 	}
 	
-	
+	public String getMsg() {
+		String msg = ExceptionEnum.getMsg(code);
+		return msg;
+	}
 	
 }

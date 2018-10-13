@@ -34,7 +34,7 @@ public enum ExceptionEnum {
 	}
 
 
-	public String getMsg(String code) {
+	public static String getMsg(String code) {
 		String msg = null;
 		for (ExceptionEnum exceptionCode : ExceptionEnum.values()) {
 			if(StringUtils.equals(code, exceptionCode.getCode())) {
