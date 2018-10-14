@@ -44,7 +44,7 @@ public class UserExceptionResolver implements HandlerExceptionResolver{
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("message", message);
-		mv.setViewName("error");
+		mv.setViewName("/error");
 		return mv;
 	}
 
